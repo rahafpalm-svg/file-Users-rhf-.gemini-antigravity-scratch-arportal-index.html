@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARPortal — البوابة الاحترافية لإدارة الذمم المدينة</title>
+  <!-- Google Fonts: Cairo for Arabic text and Plus Jakarta Sans for Latin numbers/tables -->
+  <link href="ARPortal%20%E2%80%94%20%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9%20%D9%84%D8%A7%D9%95%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B0%D9%85%D9%85%20%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9_files/css2_aDeO.css" rel="stylesheet">
+  <link rel="stylesheet" href="ARPortal%20%E2%80%94%20%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9%20%D9%84%D8%A7%D9%95%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B0%D9%85%D9%85%20%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9_files/style_aDeO.css">
+</head>
+<body>
+
+  <!-- App Shell Container -->
+  <div class="app-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Logo -->
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"></rect>
+            <rect x="3" y="13" width="8" height="8" rx="2" fill="currentColor" fill-opacity="0.4"></rect>
+            <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor" fill-opacity="0.4"></rect>
+            <rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"></rect>
+          </svg>
+        </div>
+        <div class="logo-text">AR<span>Portal</span></div>
+      </div>
+
+      <!-- User Profile Card -->
+      <div class="profile-card">
+        <div class="avatar" id="sidebar-avatar">GS</div>
+        <div class="profile-info">
+          <div class="profile-name" id="sidebar-username">Global Supply</div>
+          <span class="role-badge" id="sidebar-role-badge" style="background-color: rgba(139, 92, 246, 0.2); color: rgb(167, 139, 250);">بوابة الموردين</span>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="sidebar-nav">
+        <!-- Links will be filtered or highlighted dynamically based on active role -->
+        
+        <!-- Admin Nav Links -->
+        <button class="nav-item" data-page="admin-dashboard" data-role="admin" onclick="navigateTo('admin-dashboard')" style="display: none;">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">لوحة التحكم</span>
+        </button>
+        <button class="nav-item" data-page="admin-customers" data-role="admin" onclick="navigateTo('admin-customers')" style="display: none;">
+          <span class="nav-icon">🏢</span>
+          <span class="nav-label">حسابات العملاء</span>
+        </button>
+        <button class="nav-item" data-page="admin-vendors" data-role="admin" onclick="navigateTo('admin-vendors')" style="display: none;">
+          <span class="nav-icon">🏪</span>
+          <span class="nav-label">حسابات الموردين</span>
+        </button>
+        <button class="nav-item" data-page="admin-invoices" data-role="admin" onclick="navigateTo('admin-invoices')" style="display: none;">
+          <span class="nav-icon">📄</span>
+          <span class="nav-label">جميع الفواتير</span>
+        </button>
+
+        <!-- Customer Nav Links -->
+        <button class="nav-item" data-page="customer-overview" data-role="customer" onclick="navigateTo('customer-overview')" style="display: none;">
+          <span class="nav-icon">🏢</span>
+          <span class="nav-label">حسابي المالي</span>
+        </button>
+        <button class="nav-item" data-page="customer-statement" data-role="customer" onclick="navigateTo('customer-statement')" style="display: none;">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">كشف الحساب</span>
+        </button>
+
+        <!-- Vendor Nav Links -->
+        <button class="nav-item active" data-page="vendor-overview" data-role="vendor" onclick="navigateTo('vendor-overview')" style="display: flex;">
+          <span class="nav-icon">🏪</span>
+          <span class="nav-label">حساب التوريد</span>
+        </button>
+        <button class="nav-item" data-page="vendor-payments" data-role="vendor" onclick="navigateTo('vendor-payments')" style="display: flex;">
+          <span class="nav-icon">💰</span>
+          <span class="nav-label">المدفوعات المستلمة</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer / Role Switcher Trigger -->
+      <div class="sidebar-footer">
+        <button class="btn-role-switch" onclick="openRoleSwitcher()">
+          <span class="switch-icon">🔄</span>
+          <span class="switch-text">تبديل دور المستخدم</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="main-content">
+      
+      <!-- HEADER -->
+      <header class="content-header">
+        <div class="header-title-area">
+          <h1 id="header-page-title">🏪 بوابة الموردين المالية</h1>
+          <p id="header-page-subtitle">متابعة مستحقات التوريد وأوامر الشراء المفتوحة ورفع الفواتير المباشرة</p>
+        </div>
+        <div class="header-actions">
+          <div class="date-badge" id="current-date-badge">الثلاثاء، ٢٣ يونيو ٢٠٢٦</div>
+          <button class="dark-mode-toggle" id="dark-mode-btn" onclick="toggleDarkMode()" title="تفعيل الوضع الداكن">
+            <span class="mode-icon">🌙</span>
+          </button>
+          <div class="notification-bell" onclick="showNotificationCenter()">
+            <span class="bell-icon">🔔</span>
+            <span class="bell-dot"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGES WRAPPER -->
+      <div class="pages-container">
+
+        <!-- ============================================== -->
+        <!-- ADMIN PORTAL                                   -->
+        <!-- ============================================== -->
+
+        <!-- Page: Admin Dashboard -->
+        <section class="page-section" id="page-admin-dashboard">
+          <!-- Metrics Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card card-primary">
+              <div class="metric-header">
+                <span class="metric-title">إجمالي الذمم المدينة</span>
+                <span class="metric-icon">💰</span>
+              </div>
+              <div class="metric-value" id="admin-metric-total-ar">$102,050</div>
+              <div class="metric-trend trend-down" id="admin-trend-ar">
+                <span>↑ 4.2% عن الشهر الماضي</span>
+              </div>
+              <div class="metric-chart">
+                <!-- SVG Sparkline for rich visual detail -->
+                <svg viewBox="0 0 100 30" class="sparkline">
+                  <path d="M 0,25 C 20,20 30,12 50,18 C 70,24 80,5 100,8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">جارية (0–30 يوم)</span>
+                <span class="metric-icon">🟢</span>
+              </div>
+              <div class="metric-value" id="admin-metric-current">$59,450</div>
+              <div class="metric-ratio">
+                <div class="ratio-bar"><span id="admin-bar-current" style="width: 58.2558%;"></span></div>
+                <div class="ratio-text" id="admin-ratio-current">58.3% من الإجمالي</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">متأخرة (31–90 يوم)</span>
+                <span class="metric-icon">🟡</span>
+              </div>
+              <div class="metric-value" id="admin-metric-overdue">$42,600</div>
+              <div class="metric-ratio">
+                <div class="ratio-bar"><span id="admin-bar-overdue" style="width: 41.7442%; background: var(--warning);"></span></div>
+                <div class="ratio-text" id="admin-ratio-overdue">41.7% من الإجمالي</div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">حرجة (أكثر من 90 يوم)</span>
+                <span class="metric-icon">🔴</span>
+              </div>
+              <div class="metric-value" id="admin-metric-critical">$7,850</div>
+              <div class="metric-ratio">
+                <div class="ratio-bar"><span id="admin-bar-critical" style="width: 7.69231%; background: var(--danger);"></span></div>
+                <div class="ratio-text" id="admin-ratio-critical">7.7% من الإجمالي</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Charts & Recent Lists -->
+          <div class="dashboard-row-grid">
+            <!-- Recent Invoices Panel -->
+            <div class="dashboard-panel panel-large">
+              <div class="panel-header">
+                <h3 class="panel-title">آخر الفواتير الصادرة</h3>
+                <button class="btn btn-secondary btn-sm" onclick="navigateTo('admin-invoices')">عرض الكل ←</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table" id="dashboard-recent-invoices-table">
+                  <thead>
+                    <tr>
+                      <th>رقم الفاتورة</th>
+                      <th>العميل</th>
+                      <th>المبلغ</th>
+                      <th>تاريخ الاستحقاق</th>
+                      <th>الحالة</th>
+                    </tr>
+                  </thead>
+                  <tbody><tr>
+      <td><strong>INV-2847</strong></td>
+      <td>Acme Corp</td>
+      <td><span class="num">$18,400</span></td>
+      <td><span class="num">2026-06-30</span></td>
+      <td><span class="status-pill near-due">قريبة</span></td>
+    </tr><tr>
+      <td><strong>INV-2846</strong></td>
+      <td>TechNova Ltd</td>
+      <td><span class="num">$34,750</span></td>
+      <td><span class="num">2026-06-15</span></td>
+      <td><span class="status-pill overdue">متأخرة</span></td>
+    </tr><tr>
+      <td><strong>INV-2845</strong></td>
+      <td>Brightfield Co</td>
+      <td><span class="num">$9,200</span></td>
+      <td><span class="num">2026-07-10</span></td>
+      <td><span class="status-pill paid">مدفوعة</span></td>
+    </tr><tr>
+      <td><strong>INV-2844</strong></td>
+      <td>Orion Systems</td>
+      <td><span class="num">$52,000</span></td>
+      <td><span class="num">2026-06-28</span></td>
+      <td><span class="status-pill near-due">قريبة</span></td>
+    </tr><tr>
+      <td><strong>INV-2843</strong></td>
+      <td>Merlin Health</td>
+      <td><span class="num">$7,850</span></td>
+      <td><span class="num">2026-05-20</span></td>
+      <td><span class="status-pill overdue">متأخرة</span></td>
+    </tr></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Aging Analysis Panel -->
+            <div class="dashboard-panel panel-small">
+              <div class="panel-header">
+                <h3 class="panel-title">تقادم الذمم المدينة</h3>
+              </div>
+              <div class="aging-widget">
+                <div class="aging-item">
+                  <div class="aging-label">0–30 يوم</div>
+                  <div class="aging-bar-wrapper">
+                    <div class="aging-bar" id="aging-bar-1" style="width: 58.2558%; background: var(--primary);"></div>
+                  </div>
+                  <div class="aging-value" id="aging-val-1">$59K</div>
+                </div>
+                <div class="aging-item">
+                  <div class="aging-label">31–60 يوم</div>
+                  <div class="aging-bar-wrapper">
+                    <div class="aging-bar" id="aging-bar-2" style="width: 34.0519%; background: var(--warning);"></div>
+                  </div>
+                  <div class="aging-value" id="aging-val-2">$35K</div>
+                </div>
+                <div class="aging-item">
+                  <div class="aging-label">61–90 يوم</div>
+                  <div class="aging-bar-wrapper">
+                    <div class="aging-bar" id="aging-bar-3" style="width: 7.69231%; background: rgb(226, 114, 51);"></div>
+                  </div>
+                  <div class="aging-value" id="aging-val-3">$8K</div>
+                </div>
+                <div class="aging-item">
+                  <div class="aging-label">أكثر من 90</div>
+                  <div class="aging-bar-wrapper">
+                    <div class="aging-bar" id="aging-bar-4" style="width: 7.69231%; background: var(--danger);"></div>
+                  </div>
+                  <div class="aging-value" id="aging-val-4">$8K</div>
+                </div>
+
+                <div class="collection-efficiency-box">
+                  <div class="eff-label">كفاءة تحصيل الديون</div>
+                  <div class="eff-value">87.4% <span class="trend-up">↑ 2.1%</span></div>
+                  <div class="eff-sub">معدل التحصيل خلال المدة المستهدفة</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Panels -->
+          <div class="dashboard-row-grid two-columns">
+            <div class="dashboard-panel">
+              <div class="panel-header">
+                <h3 class="panel-title">أعلى العملاء بالرصيد القائم</h3>
+                <button class="btn btn-secondary btn-sm" onclick="navigateTo('admin-customers')">عرض الحسابات ←</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table" id="dashboard-top-customers-table">
+                  <thead>
+                    <tr>
+                      <th>العميل</th>
+                      <th>الرصيد القائم</th>
+                      <th>عدد الفواتير</th>
+                    </tr>
+                  </thead>
+                  <tbody><tr>
+      <td>Orion Systems</td>
+      <td><strong>$41,050</strong></td>
+      <td><span class="table-info-counter">1 فواتير</span></td>
+    </tr><tr>
+      <td>TechNova Ltd</td>
+      <td><strong>$34,750</strong></td>
+      <td><span class="table-info-counter">1 فواتير</span></td>
+    </tr><tr>
+      <td>Acme Corp</td>
+      <td><strong>$18,400</strong></td>
+      <td><span class="table-info-counter">1 فواتير</span></td>
+    </tr><tr>
+      <td>Merlin Health</td>
+      <td><strong>$7,850</strong></td>
+      <td><span class="table-info-counter">1 فواتير</span></td>
+    </tr></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="dashboard-panel">
+              <div class="panel-header">
+                <h3 class="panel-title">الموردون وأمر الشراء المفتوحة</h3>
+                <button class="btn btn-secondary btn-sm" onclick="navigateTo('admin-vendors')">عرض الموردين ←</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table" id="dashboard-top-vendors-table">
+                  <thead>
+                    <tr>
+                      <th>المورد</th>
+                      <th>المستحقات المفتوحة</th>
+                      <th>الحالة</th>
+                    </tr>
+                  </thead>
+                  <tbody><tr>
+      <td>Global Supply Co</td>
+      <td><strong>$74,200</strong></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+    </tr><tr>
+      <td>Apex Contractors</td>
+      <td><strong>$48,000</strong></td>
+      <td><span class="status-pill active-state">قريب</span></td>
+    </tr><tr>
+      <td>DataStream Inc</td>
+      <td><strong>$31,500</strong></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+    </tr><tr>
+      <td>Redwood Logistics</td>
+      <td><strong>$89,300</strong></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+    </tr></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page: Admin Customers -->
+        <section class="page-section" id="page-admin-customers">
+          <div class="panel-container">
+            <div class="panel-actions-row">
+              <div class="search-filter-bar">
+                <div class="search-box">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" id="customer-search-input" placeholder="بحث باسم العميل، رقم الحساب..." onkeyup="filterCustomers()">
+                </div>
+                <div class="select-box">
+                  <select id="customer-status-filter" onchange="filterCustomers()">
+                    <option value="ALL" selected="selected">جميع الحالات</option>
+                    <option value="نشط">نشط</option>
+                    <option value="متأخر">متأخر</option>
+                    <option value="موقف">موقف</option>
+                  </select>
+                </div>
+              </div>
+              <div class="action-buttons-group">
+                <button class="btn btn-secondary" onclick="exportData('customers')">⬇ تصدير البيانات</button>
+                <button class="btn btn-primary" onclick="openAddCustomerModal()">+ إضافة حساب عميل</button>
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="data-table" id="admin-customers-table">
+                <thead>
+                  <tr>
+                    <th>العميل</th>
+                    <th>رقم الحساب</th>
+                    <th>الحد الائتماني</th>
+                    <th>الرصيد القائم</th>
+                    <th>المتأخر المستحق</th>
+                    <th>الحالة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody><tr data-name="acme corp" data-account="c-10041" data-status="نشط">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Acme Corp</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">billing@acme.com</div>
+      </td>
+      <td><span class="num">C-10041</span></td>
+      <td><span class="num">$200,000</span></td>
+      <td><strong class="num">$18,400</strong></td>
+      <td><span class="num text-danger">—</span></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="viewCustomerInvoices('Acme Corp')">عرض الفواتير</button>
+      </td>
+    </tr><tr data-name="technova ltd" data-account="c-10052" data-status="متأخر">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">TechNova Ltd</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">finance@technova.io</div>
+      </td>
+      <td><span class="num">C-10052</span></td>
+      <td><span class="num">$150,000</span></td>
+      <td><strong class="num">$34,750</strong></td>
+      <td><span class="num text-danger">$34,750</span></td>
+      <td><span class="status-pill overdue">متأخر</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="viewCustomerInvoices('TechNova Ltd')">عرض الفواتير</button>
+      </td>
+    </tr><tr data-name="orion systems" data-account="c-10038" data-status="نشط">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Orion Systems</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">accounts@orionsys.com</div>
+      </td>
+      <td><span class="num">C-10038</span></td>
+      <td><span class="num">$100,000</span></td>
+      <td><strong class="num">$41,050</strong></td>
+      <td><span class="num text-danger">—</span></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="viewCustomerInvoices('Orion Systems')">عرض الفواتير</button>
+      </td>
+    </tr><tr data-name="merlin health" data-account="c-10067" data-status="متأخر">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Merlin Health</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">invoices@merlinhealth.com</div>
+      </td>
+      <td><span class="num">C-10067</span></td>
+      <td><span class="num">$80,000</span></td>
+      <td><strong class="num">$7,850</strong></td>
+      <td><span class="num text-danger">$7,850</span></td>
+      <td><span class="status-pill overdue">متأخر</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="viewCustomerInvoices('Merlin Health')">عرض الفواتير</button>
+      </td>
+    </tr><tr data-name="brightfield co" data-account="c-10029" data-status="نشط">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Brightfield Co</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">billing@brightfield.co</div>
+      </td>
+      <td><span class="num">C-10029</span></td>
+      <td><span class="num">$60,000</span></td>
+      <td><strong class="num">$0</strong></td>
+      <td><span class="num text-danger">—</span></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="viewCustomerInvoices('Brightfield Co')">عرض الفواتير</button>
+      </td>
+    </tr><tr data-name="vantage partners" data-account="c-10081" data-status="نشط">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Vantage Partners</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">info@vantagep.net</div>
+      </td>
+      <td><span class="num">C-10081</span></td>
+      <td><span class="num">$120,000</span></td>
+      <td><strong class="num">$0</strong></td>
+      <td><span class="num text-danger">—</span></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="viewCustomerInvoices('Vantage Partners')">عرض الفواتير</button>
+      </td>
+    </tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page: Admin Vendors -->
+        <section class="page-section" id="page-admin-vendors">
+          <div class="panel-container">
+            <div class="panel-actions-row">
+              <div class="search-filter-bar">
+                <div class="search-box">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" id="vendor-search-input" placeholder="بحث عن مورد..." onkeyup="filterVendors()">
+                </div>
+                <div class="select-box">
+                  <select id="vendor-category-filter" onchange="filterVendors()">
+                    <option value="ALL" selected="selected">جميع التصنيفات</option>
+                    <option value="مورد">مورد مواد خام</option>
+                    <option value="مقاول">مقاول خارجي</option>
+                    <option value="خدمات">مزود خدمات</option>
+                  </select>
+                </div>
+              </div>
+              <div class="action-buttons-group">
+                <button class="btn btn-secondary" onclick="exportData('vendors')">⬇ تصدير البيانات</button>
+                <button class="btn btn-primary" onclick="openAddVendorModal()">+ إضافة مورد جديد</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" id="admin-vendors-table">
+                <thead>
+                  <tr>
+                    <th>المورد</th>
+                    <th>التصنيف</th>
+                    <th>شروط الدفع</th>
+                    <th>الأوامر المفتوحة</th>
+                    <th>المستحق الإجمالي</th>
+                    <th>الحالة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody><tr data-name="global supply co" data-category="مورد">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Global Supply Co</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">globalsupply.com</div>
+      </td>
+      <td><span class="status-pill processing">مورد</span></td>
+      <td><strong>صافي 30</strong></td>
+      <td><span class="table-info-counter">3 أوامر شراء</span></td>
+      <td><strong class="num">$74,200</strong></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="showToast('تم إرسال إشعار مطابقة للمورد', 'success')">مطابقة الرصيد</button>
+      </td>
+    </tr><tr data-name="apex contractors" data-category="مقاول">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Apex Contractors</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">apexco.com</div>
+      </td>
+      <td><span class="status-pill processing">مقاول</span></td>
+      <td><strong>صافي 15</strong></td>
+      <td><span class="table-info-counter">1 أوامر شراء</span></td>
+      <td><strong class="num">$48,000</strong></td>
+      <td><span class="status-pill active-state">قريب</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="showToast('تم إرسال إشعار مطابقة للمورد', 'success')">مطابقة الرصيد</button>
+      </td>
+    </tr><tr data-name="datastream inc" data-category="خدمات">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">DataStream Inc</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">datastream.io</div>
+      </td>
+      <td><span class="status-pill processing">خدمات</span></td>
+      <td><strong>صافي 30</strong></td>
+      <td><span class="table-info-counter">2 أوامر شراء</span></td>
+      <td><strong class="num">$31,500</strong></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="showToast('تم إرسال إشعار مطابقة للمورد', 'success')">مطابقة الرصيد</button>
+      </td>
+    </tr><tr data-name="redwood logistics" data-category="مورد">
+      <td>
+        <div style="font-weight:700; color: var(--slate-900)">Redwood Logistics</div>
+        <div style="font-size:11px; color:var(--slate-400); font-family: var(--font-latin);">redwoodlog.com</div>
+      </td>
+      <td><span class="status-pill processing">مورد</span></td>
+      <td><strong>صافي 45</strong></td>
+      <td><span class="table-info-counter">4 أوامر شراء</span></td>
+      <td><strong class="num">$89,300</strong></td>
+      <td><span class="status-pill active-state">نشط</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="showToast('تم إرسال إشعار مطابقة للمورد', 'success')">مطابقة الرصيد</button>
+      </td>
+    </tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page: Admin Invoices -->
+        <section class="page-section" id="page-admin-invoices">
+          <div class="panel-container">
+            <div class="panel-actions-row">
+              <div class="search-filter-bar">
+                <div class="search-box">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" id="invoice-search-input" placeholder="بحث برقم الفاتورة أو العميل..." onkeyup="filterInvoices()">
+                </div>
+                <div class="select-box">
+                  <select id="invoice-status-filter" onchange="filterInvoices()">
+                    <option value="ALL" selected="selected">جميع حالات السداد</option>
+                    <option value="مدفوعة">مدفوعة</option>
+                    <option value="قريبة">قريبة الاستحقاق</option>
+                    <option value="متأخرة">متأخرة</option>
+                    <option value="مسودة">مسودة</option>
+                  </select>
+                </div>
+              </div>
+              <div class="action-buttons-group">
+                <button class="btn btn-secondary" onclick="exportData('invoices')">⬇ تصدير</button>
+                <button class="btn btn-primary" onclick="openNewInvoiceModal()">+ إنشاء فاتورة جديدة</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" id="admin-invoices-table">
+                <thead>
+                  <tr>
+                    <th>رقم الفاتورة</th>
+                    <th>العميل</th>
+                    <th>تاريخ الإصدار</th>
+                    <th>الاستحقاق</th>
+                    <th>المبلغ الإجمالي</th>
+                    <th>المبلغ المتبقي</th>
+                    <th>الحالة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody><tr data-num="inv-2847" data-cust="acme corp" data-status="قريبة">
+      <td><strong>INV-2847</strong></td>
+      <td>Acme Corp</td>
+      <td><span class="num">2026-06-01</span></td>
+      <td><span class="num">2026-06-30</span></td>
+      <td><span class="num">$18,400</span></td>
+      <td><strong class="num">$18,400</strong></td>
+      <td><span class="status-pill near-due">قريبة</span></td>
+      <td>
+        <button class="btn btn-primary btn-sm" onclick="openDirectPayModal('INV-2847', 18400)">سداد</button>
+      </td>
+    </tr><tr data-num="inv-2846" data-cust="technova ltd" data-status="متأخرة">
+      <td><strong>INV-2846</strong></td>
+      <td>TechNova Ltd</td>
+      <td><span class="num">2026-05-16</span></td>
+      <td><span class="num">2026-06-15</span></td>
+      <td><span class="num">$34,750</span></td>
+      <td><strong class="num">$34,750</strong></td>
+      <td><span class="status-pill overdue">متأخرة</span></td>
+      <td>
+        <button class="btn btn-primary btn-sm" onclick="openDirectPayModal('INV-2846', 34750)">سداد</button>
+      </td>
+    </tr><tr data-num="inv-2845" data-cust="brightfield co" data-status="مدفوعة">
+      <td><strong>INV-2845</strong></td>
+      <td>Brightfield Co</td>
+      <td><span class="num">2026-06-05</span></td>
+      <td><span class="num">2026-07-10</span></td>
+      <td><span class="num">$9,200</span></td>
+      <td><strong class="num">$0</strong></td>
+      <td><span class="status-pill paid">مدفوعة</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="downloadInvoicePDF('INV-2845')">⬇ PDF</button>
+      </td>
+    </tr><tr data-num="inv-2844" data-cust="orion systems" data-status="قريبة">
+      <td><strong>INV-2844</strong></td>
+      <td>Orion Systems</td>
+      <td><span class="num">2026-05-29</span></td>
+      <td><span class="num">2026-06-28</span></td>
+      <td><span class="num">$52,000</span></td>
+      <td><strong class="num">$41,050</strong></td>
+      <td><span class="status-pill near-due">قريبة</span></td>
+      <td>
+        <button class="btn btn-primary btn-sm" onclick="openDirectPayModal('INV-2844', 41050)">سداد</button>
+      </td>
+    </tr><tr data-num="inv-2843" data-cust="merlin health" data-status="متأخرة">
+      <td><strong>INV-2843</strong></td>
+      <td>Merlin Health</td>
+      <td><span class="num">2026-04-20</span></td>
+      <td><span class="num">2026-05-20</span></td>
+      <td><span class="num">$7,850</span></td>
+      <td><strong class="num">$7,850</strong></td>
+      <td><span class="status-pill overdue">متأخرة</span></td>
+      <td>
+        <button class="btn btn-primary btn-sm" onclick="openDirectPayModal('INV-2843', 7850)">سداد</button>
+      </td>
+    </tr><tr data-num="inv-2842" data-cust="acme corp" data-status="مدفوعة">
+      <td><strong>INV-2842</strong></td>
+      <td>Acme Corp</td>
+      <td><span class="num">2026-04-15</span></td>
+      <td><span class="num">2026-05-15</span></td>
+      <td><span class="num">$22,100</span></td>
+      <td><strong class="num">$0</strong></td>
+      <td><span class="status-pill paid">مدفوعة</span></td>
+      <td>
+        <button class="btn btn-secondary btn-sm" onclick="downloadInvoicePDF('INV-2842')">⬇ PDF</button>
+      </td>
+    </tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- CUSTOMER PORTAL                                -->
+        <!-- ============================================== -->
+
+        <!-- Page: Customer Overview -->
+        <section class="page-section" id="page-customer-overview">
+          <!-- Welcome Hero Banner -->
+          <div class="welcome-banner-hero">
+            <div class="welcome-text-side">
+              <h2 id="customer-welcome-title">مرحباً، شركة Acme Corp 👋</h2>
+              <p class="banner-sub" id="customer-welcome-subtitle">رقم الحساب المالي: C-10041 · يرجى متابعة الموقف المالي وحالة السداد أدناه</p>
+            </div>
+            <div class="welcome-actions">
+              <button class="btn btn-white" onclick="openQuickPaymentModal()">💳 سداد دفعة مالية</button>
+              <button class="btn btn-white-outline" onclick="navigateTo('customer-statement')">طلب كشف الحساب</button>
+            </div>
+          </div>
+
+          <!-- Alert Box -->
+          <div class="alert-banner" id="customer-alert-box">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+              <strong>تنبيه مالي مستعجل:</strong> لديك فواتير متأخرة الدفع بقيمة إجمالية <span id="customer-alert-amount">$34,750</span> — يرجى سداد المبالغ لتفادي تعليق الحد الائتماني.
+            </div>
+          </div>
+
+          <!-- Customer Key Metrics -->
+          <div class="metrics-grid">
+            <div class="metric-card card-accent">
+              <div class="metric-header">
+                <span class="metric-title">إجمالي المستحق القائم</span>
+                <span class="metric-icon">📊</span>
+              </div>
+              <div class="metric-value" id="customer-metric-total-due">$94,200</div>
+              <span class="metric-badge-note" id="customer-metric-open-count">5 فواتير مفتوحة حالياً</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">المبالغ المتأخرة</span>
+                <span class="metric-icon">🚨</span>
+              </div>
+              <div class="metric-value text-danger" id="customer-metric-overdue">$34,750</div>
+              <span class="metric-badge-note" id="customer-metric-days-overdue">متأخرة منذ 8 أيام</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">الحد الائتماني المتبقي</span>
+                <span class="metric-icon">🛡️</span>
+              </div>
+              <div class="metric-value" id="customer-metric-credit-avail">$105,800</div>
+              <span class="metric-badge-note" id="customer-metric-credit-total">من أصل حد إجمالي $200,000</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">آخر دفعة مسجلة</span>
+                <span class="metric-icon">✅</span>
+              </div>
+              <div class="metric-value" id="customer-metric-last-payment">$22,100</div>
+              <span class="metric-badge-note" id="customer-metric-last-pay-date">بتاريخ 15 مايو 2026</span>
+            </div>
+          </div>
+
+          <!-- Open Invoices Cards List -->
+          <div class="dashboard-panel margin-top-20">
+            <div class="panel-header">
+              <h3 class="panel-title">الفواتير المستحقة حالياً</h3>
+              <span class="table-info-counter" id="customer-open-invoices-counter">3 فواتير غير مدفوعة</span>
+            </div>
+            
+            <div class="invoices-card-grid" id="customer-invoices-cards-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Page: Customer Statement -->
+        <section class="page-section" id="page-customer-statement">
+          <!-- Statement Header Card -->
+          <div class="statement-hero-card">
+            <div class="stmt-info">
+              <h2 class="stmt-title" id="statement-title">كشف حساب العميل — Acme Corp</h2>
+              <p class="stmt-meta" id="statement-subtitle">رقم الحساب: C-10041 · الفترة المالية: يناير – يونيو 2026</p>
+            </div>
+            <div class="stmt-balance-box">
+              <span class="stmt-bal-lbl">الرصيد المستحق الحالي</span>
+              <span class="stmt-bal-val" id="statement-balance-value">$94,200</span>
+            </div>
+          </div>
+
+          <!-- Transaction List Panel -->
+          <div class="dashboard-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">كشف الحركة التاريخية للحساب</h3>
+              <button class="btn btn-secondary btn-sm" onclick="downloadStatementPDF()">⬇ تحميل الكشف كـ PDF</button>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="data-table" id="customer-statement-table">
+                <thead>
+                  <tr>
+                    <th>تاريخ المعاملة</th>
+                    <th>رقم المرجع / الوصف</th>
+                    <th>مبالغ الفاتورة</th>
+                    <th>المدفوعات</th>
+                    <th>الرصيد المتبقي</th>
+                    <th>الحالة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Dynamic -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- VENDOR PORTAL                                  -->
+        <!-- ============================================== -->
+
+        <!-- Page: Vendor Overview -->
+        <section class="page-section active" id="page-vendor-overview">
+          <!-- Welcome Hero Banner -->
+          <div class="welcome-banner-hero vendor-theme">
+            <div class="welcome-text-side">
+              <h2 id="vendor-welcome-title">مرحباً، شركة Global Supply Co 👋</h2>
+              <p class="banner-sub" id="vendor-welcome-subtitle">بوابة الموردين المالية · شروط الدفع المعتمدة: صافي 30 يوم</p>
+            </div>
+            <div class="welcome-actions">
+              <button class="btn btn-white" onclick="openInvoiceUploadModal()">📄 تقديم فاتورة جديدة</button>
+              <button class="btn btn-white-outline" onclick="navigateTo('vendor-payments')">سجل التحويلات المستلمة</button>
+            </div>
+          </div>
+
+          <!-- Info banner -->
+          <div class="alert-banner alert-info" id="vendor-info-box">
+            <span class="alert-icon">ℹ️</span>
+            <div class="alert-content">
+              <strong>حالة الحساب المالي للمورد:</strong> لديك مستحقات بقيمة إجمالية <span id="vendor-info-amount">$74,200</span> معتمدة وهي قيد جدولة الدفع حسب الشروط المبرمة.
+            </div>
+          </div>
+
+          <!-- Vendor Metrics Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card card-accent-vendor">
+              <div class="metric-header">
+                <span class="metric-title">إجمالي المبالغ المستحقة</span>
+                <span class="metric-icon">💰</span>
+              </div>
+              <div class="metric-value" id="vendor-metric-total-receivables">$74,200</div>
+              <span class="metric-badge-note" id="vendor-metric-po-count">3 أوامر توريد نشطة</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">فواتير قيد المراجعة</span>
+                <span class="metric-icon">⏳</span>
+              </div>
+              <div class="metric-value" id="vendor-metric-pending-review">$38,500</div>
+              <span class="metric-badge-note" id="vendor-metric-pending-count">فاتورتان قيد التدقيق المالي</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">آخر دفعة مستلمة</span>
+                <span class="metric-icon">📥</span>
+              </div>
+              <div class="metric-value" id="vendor-metric-last-received">$52,000</div>
+              <span class="metric-badge-note" id="vendor-metric-last-received-date">مسددة بتاريخ 2 يونيو 2026</span>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">شروط الدفع المتفق عليها</span>
+                <span class="metric-icon">📅</span>
+              </div>
+              <div class="metric-value" id="vendor-metric-terms">صافي 30</div>
+              <span class="metric-badge-note">رقم الحساب المرجعي: V-001</span>
+            </div>
+          </div>
+
+          <!-- Open Purchase Orders -->
+          <div class="dashboard-panel margin-top-20">
+            <div class="panel-header">
+              <h3 class="panel-title">أوامر الشراء والتوريد المفتوحة (Open POs)</h3>
+              <span class="table-info-counter" id="vendor-po-counter">2 أوامر شراء مفتوحة</span>
+            </div>
+
+            <div class="po-cards-container" id="vendor-po-cards-grid"><div class="po-card">
+        <div class="po-card-header">
+          <div class="po-meta">
+            <span class="po-card-title">PO-4412</span>
+            <div class="po-card-date">تاريخ الإصدار: 2026-06-01</div>
+          </div>
+          <div class="po-card-amount-side">
+            <div class="po-card-amount">$28,500</div>
+            <span class="status-pill processing">قيد التوريد</span>
+          </div>
+        </div>
+        <div class="po-details-grid">
+          <div class="po-detail-row">
+            <span class="po-dt-key">البنود المشمولة</span>
+            <span class="po-dt-val">مواد خام — شحنة الحديد فئة A</span>
+          </div>
+          <div class="po-detail-row">
+            <span class="po-dt-key">الكمية</span>
+            <span class="po-dt-val">500 طن</span>
+          </div>
+          <div class="po-detail-row">
+            <span class="po-dt-key">تاريخ التسليم المتوقع</span>
+            <span class="po-dt-val">2026-07-05</span>
+          </div>
+        </div>
+        <div class="po-card-actions">
+          <button class="btn btn-secondary btn-sm" onclick="showToast('جاري تحميل ملف PO...', 'info')">⬇ تحميل أمر الشراء PO</button>
+          <button class="btn btn-primary btn-sm" onclick="openDirectUploadModal('PO-4412', 28500)">تقديم الفاتورة</button>
+        </div>
+      </div><div class="po-card">
+        <div class="po-card-header">
+          <div class="po-meta">
+            <span class="po-card-title">PO-4398</span>
+            <div class="po-card-date">تاريخ الإصدار: 2026-05-12</div>
+          </div>
+          <div class="po-card-amount-side">
+            <div class="po-card-amount">$45,700</div>
+            <span class="status-pill pending">انتظار موافقة</span>
+          </div>
+        </div>
+        <div class="po-details-grid">
+          <div class="po-detail-row">
+            <span class="po-dt-key">البنود المشمولة</span>
+            <span class="po-dt-val">قطع غيار توربينات — مجموعة B</span>
+          </div>
+          <div class="po-detail-row">
+            <span class="po-dt-key">الكمية</span>
+            <span class="po-dt-val">120 وحدة</span>
+          </div>
+          <div class="po-detail-row">
+            <span class="po-dt-key">تاريخ التسليم المتوقع</span>
+            <span class="po-dt-val">2026-06-20</span>
+          </div>
+        </div>
+        <div class="po-card-actions">
+          <button class="btn btn-secondary btn-sm" onclick="showToast('جاري تحميل ملف PO...', 'info')">⬇ تحميل أمر الشراء PO</button>
+          <button class="btn btn-primary btn-sm" onclick="openDirectUploadModal('PO-4398', 45700)">تقديم الفاتورة</button>
+        </div>
+      </div></div>
+          </div>
+        </section>
+
+        <!-- Page: Vendor Payments -->
+        <section class="page-section" id="page-vendor-payments">
+          <div class="panel-container">
+            <div class="panel-header no-margin-bottom">
+              <h3 class="panel-title">سجل المدفوعات المستلمة من الشركة</h3>
+              <button class="btn btn-secondary btn-sm" onclick="exportData('vendor-payments')">⬇ تصدير السجل</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" id="vendor-payments-table">
+                <thead>
+                  <tr>
+                    <th>تاريخ الدفعة</th>
+                    <th>رقم الدفعة المرجعي</th>
+                    <th>أمر الشراء المقابل</th>
+                    <th>المبلغ المستلم</th>
+                    <th>طريقة التحويل</th>
+                    <th>حالة الدفعة</th>
+                  </tr>
+                </thead>
+                <tbody><tr>
+      <td><span class="num">2026-06-02</span></td>
+      <td><strong>PAY-8821</strong></td>
+      <td><span class="num">PO-4380</span></td>
+      <td><strong class="num">$52,000</strong></td>
+      <td>تحويل بنكي سريع</td>
+      <td><span class="status-pill paid">مدفوع</span></td>
+    </tr><tr>
+      <td><span class="num">2026-05-15</span></td>
+      <td><strong>PAY-8744</strong></td>
+      <td><span class="num">PO-4361</span></td>
+      <td><strong class="num">$33,400</strong></td>
+      <td>تحويل بنكي سريع</td>
+      <td><span class="status-pill paid">مدفوع</span></td>
+    </tr><tr>
+      <td><span class="num">2026-04-03</span></td>
+      <td><strong>PAY-8602</strong></td>
+      <td><span class="num">PO-4340</span></td>
+      <td><strong class="num">$19,800</strong></td>
+      <td>شيك مصدق</td>
+      <td><span class="status-pill paid">مدفوع</span></td>
+    </tr><tr>
+      <td><span class="num">قيد المراجعة</span></td>
+      <td><strong>—</strong></td>
+      <td><span class="num">PO-4412</span></td>
+      <td><strong class="num">$28,500</strong></td>
+      <td>—</td>
+      <td><span class="status-pill processing">جاري المعالجة</span></td>
+    </tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- MODAL DIALOGS                                  -->
+  <!-- ============================================== -->
+
+  <!-- Modal Overlay Container -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeActiveModal(event)">
+    
+    <!-- Modal 1: Role Switcher -->
+    <div class="modal-box modal-sm" id="modal-role-switcher">
+      <div class="modal-header">
+        <h3 class="modal-title">تبديل دور المستخدم</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">×</button>
+      </div>
+      <div class="role-selector-list">
+        <!-- Admin Card -->
+        <button class="role-select-card" id="role-btn-admin" onclick="switchUserRole('admin')">
+          <div class="role-card-icon">🛡️</div>
+          <div class="role-card-details">
+            <span class="role-card-title">إدارة النظام المالي (Admin)</span>
+            <span class="role-card-desc">تحليلات كاملة، إدارة العملاء، الموردين، وإصدار الفواتير.</span>
+          </div>
+        </button>
+        <!-- Customer Card -->
+        <button class="role-select-card" id="role-btn-customer" onclick="switchUserRole('customer')">
+          <div class="role-card-icon">🏢</div>
+          <div class="role-card-details">
+            <span class="role-card-title">بوابة العملاء (Customer Portal)</span>
+            <span class="role-card-desc">عرض الفواتير المستحقة، كشف الحساب، وسداد الدفعات المالية.</span>
+          </div>
+        </button>
+        <!-- Vendor Card -->
+        <button class="role-select-card" id="role-btn-vendor" onclick="switchUserRole('vendor')">
+          <div class="role-card-icon">🏪</div>
+          <div class="role-card-details">
+            <span class="role-card-title">بوابة الموردين (Vendor Portal)</span>
+            <span class="role-card-desc">متابعة أوامر التوريد المفتوحة، تقديم الفواتير وسجل المقبوضات.</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal 2: Pay Invoice -->
+    <div class="modal-box modal-md" id="modal-pay-invoice">
+      <div class="modal-header">
+        <h3 class="modal-title" id="pay-modal-title">تسجيل سداد دفعة مالية</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">×</button>
+      </div>
+      <form id="payment-form" onsubmit="handlePaymentSubmit(event)">
+        <div class="form-group">
+          <label for="pay-invoice-select">الفاتورة المستهدفة بالسداد</label>
+          <select id="pay-invoice-select" onchange="autoFillPaymentAmount()" required=""><option value="INV-2847" selected="selected">INV-2847 — Acme Corp (المتبقي: $18,400)</option><option value="INV-2846">INV-2846 — TechNova Ltd (المتبقي: $34,750)</option><option value="INV-2844">INV-2844 — Orion Systems (المتبقي: $41,050)</option><option value="INV-2843">INV-2843 — Merlin Health (المتبقي: $7,850)</option></select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pay-amount-input">قيمة مبلغ السداد ($)</label>
+            <input type="number" id="pay-amount-input" min="1" step="any" placeholder="0.00" required="">
+          </div>
+          <div class="form-group">
+            <label for="pay-method-select">طريقة الدفع</label>
+            <select id="pay-method-select" required="">
+              <option value="تحويل بنكي" selected="selected">تحويل بنكي سريع</option>
+              <option value="بطاقة ائتمان">بطاقة ائتمان (مدى/فيزا)</option>
+              <option value="شيك">شيك مصدق</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pay-reference-input">الرقم المرجعي للمعاملة / الحوالة</label>
+          <input type="text" id="pay-reference-input" placeholder="مثال: TR-99881023" required="">
+        </div>
+        <div class="form-group">
+          <label for="pay-file-upload" class="file-upload-label">
+            <span class="upload-icon">📎</span>
+            <span class="upload-text">إرفاق مستند السداد / إشعار التحويل البنكي</span>
+            <input type="file" id="pay-file-upload" style="display: none;">
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAllModals()">إلغاء</button>
+          <button type="submit" class="btn btn-primary" id="btn-submit-payment">تأكيد وتسجيل الدفعة</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal 3: Create Invoice -->
+    <div class="modal-box modal-md" id="modal-new-invoice">
+      <div class="modal-header">
+        <h3 class="modal-title">إنشاء فاتورة ذمم جديدة</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">×</button>
+      </div>
+      <form id="invoice-form" onsubmit="handleInvoiceSubmit(event)">
+        <div class="form-group">
+          <label for="inv-customer-select">العميل المستهدف</label>
+          <select id="inv-customer-select" required=""><option value="Acme Corp" selected="selected">Acme Corp (C-10041)</option><option value="TechNova Ltd">TechNova Ltd (C-10052)</option><option value="Orion Systems">Orion Systems (C-10038)</option><option value="Merlin Health">Merlin Health (C-10067)</option><option value="Brightfield Co">Brightfield Co (C-10029)</option><option value="Vantage Partners">Vantage Partners (C-10081)</option></select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inv-amount-input">مبلغ الفاتورة الإجمالي ($)</label>
+            <input type="number" id="inv-amount-input" min="1" step="any" placeholder="0.00" required="">
+          </div>
+          <div class="form-group">
+            <label for="inv-description-input">وصف الفاتورة / الخدمات</label>
+            <input type="text" id="inv-description-input" placeholder="مثال: خدمات استشارية لشهر يونيو 2026" required="">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inv-issue-date">تاريخ الفاتورة</label>
+            <input type="date" id="inv-issue-date" required="">
+          </div>
+          <div class="form-group">
+            <label for="inv-due-date">تاريخ الاستحقاق</label>
+            <input type="date" id="inv-due-date" required="">
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAllModals()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">تصدير الفاتورة وإرسالها</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal 4: Add Customer -->
+    <div class="modal-box modal-md" id="modal-new-customer">
+      <div class="modal-header">
+        <h3 class="modal-title">إضافة حساب عميل جديد</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">×</button>
+      </div>
+      <form id="customer-form" onsubmit="handleCustomerSubmit(event)">
+        <div class="form-group">
+          <label for="cust-name-input">اسم الشركة / العميل</label>
+          <input type="text" id="cust-name-input" placeholder="اسم المنشأة بالكامل" required="">
+        </div>
+        <div class="form-group">
+          <label for="cust-email-input">البريد الإلكتروني للشركة</label>
+          <input type="email" id="cust-email-input" placeholder="billing@company.com" required="">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cust-limit-input">الحد الائتماني المعتمد ($)</label>
+            <input type="number" id="cust-limit-input" min="0" placeholder="100,000" required="">
+          </div>
+          <div class="form-group">
+            <label for="cust-status-select">الحالة الابتدائية</label>
+            <select id="cust-status-select" required="">
+              <option value="نشط" selected="selected">نشط</option>
+              <option value="موقف">موقف</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAllModals()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">حفظ الحساب</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal 5: Add Vendor -->
+    <div class="modal-box modal-md" id="modal-new-vendor">
+      <div class="modal-header">
+        <h3 class="modal-title">تسجيل مورد جديد في النظام</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">×</button>
+      </div>
+      <form id="vendor-form" onsubmit="handleVendorSubmit(event)">
+        <div class="form-group">
+          <label for="vend-name-input">اسم المورد / الشركة</label>
+          <input type="text" id="vend-name-input" placeholder="اسم المورد بالكامل" required="">
+        </div>
+        <div class="form-group">
+          <label for="vend-email-input">الموقع الإلكتروني للمورد</label>
+          <input type="text" id="vend-email-input" placeholder="company.com" required="">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="vend-category-select">تصنيف المورد</label>
+            <select id="vend-category-select" required="">
+              <option value="مورد" selected="selected">مورد مواد خام</option>
+              <option value="مقاول">مقاول خارجي</option>
+              <option value="خدمات">مزود خدمات</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="vend-terms-select">شروط الدفع المعتمدة</label>
+            <select id="vend-terms-select" required="">
+              <option value="صافي 15" selected="selected">صافي 15 يوم (Net 15)</option>
+              <option value="صافي 30">صافي 30 يوم (Net 30)</option>
+              <option value="صافي 45">صافي 45 يوم (Net 45)</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAllModals()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">تسجيل المورد</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal 6: Upload Vendor Invoice (Vendor Portal) -->
+    <div class="modal-box modal-md" id="modal-vendor-upload-invoice">
+      <div class="modal-header">
+        <h3 class="modal-title">تقديم ورفع فاتورة مورد</h3>
+        <button class="modal-close-btn" onclick="closeAllModals()">×</button>
+      </div>
+      <form id="vendor-upload-form" onsubmit="handleVendorUploadSubmit(event)">
+        <div class="form-group">
+          <label for="upload-po-select">أمر الشراء المرتبط بالفاتورة (PO)</label>
+          <select id="upload-po-select" required=""><option value="PO-4412" selected="selected">PO-4412 — مواد خام — شحنة الحديد فئة A ($28,500)</option><option value="PO-4398">PO-4398 — قطع غيار توربينات — مجموعة B ($45,700)</option></select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="upload-amount-input">مبلغ الفاتورة المطالب به ($)</label>
+            <input type="number" id="upload-amount-input" min="1" step="any" placeholder="0.00" required="">
+          </div>
+          <div class="form-group">
+            <label for="upload-invoice-num">رقم فاتورة المورد الخاصة بكم</label>
+            <input type="text" id="upload-invoice-num" placeholder="مثال: V-INV-44120" required="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="upload-file" class="file-upload-label">
+            <span class="upload-icon">📄</span>
+            <span class="upload-text">إرفاق نسخة الفاتورة (PDF/Image)</span>
+            <input type="file" id="upload-file" style="display: none;" required="">
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAllModals()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">إرسال الفاتورة للتدقيق</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- NOTIFICATIONS & TOASTS                         -->
+  <!-- ============================================== -->
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Notification Center Sidebar Panel (Slide-in) -->
+  <div class="notifications-drawer" id="notifications-drawer">
+    <div class="drawer-header">
+      <h3>مركز الإشعارات والعمليات</h3>
+      <button class="drawer-close" onclick="hideNotificationCenter()">×</button>
+    </div>
+    <div class="drawer-body" id="notifications-drawer-list">
+      <!-- Generated dynamically -->
+      <div class="drawer-empty-state">لا توجد إشعارات غير مقروءة حالياً.</div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Entry -->
+  <script src="ARPortal%20%E2%80%94%20%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A%D8%A9%20%D9%84%D8%A7%D9%95%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B0%D9%85%D9%85%20%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9_files/app_aDeO.js"></script>
+
+
+</body></html>
